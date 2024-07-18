@@ -55,7 +55,7 @@ void display1(int count, ...)
 
 int main()
 {
-    displa y(3,1,4,2); 
+    display(3,1,4,2); 
     
     printf("Sum = %d\n", sum(3,1,2,3));
 
