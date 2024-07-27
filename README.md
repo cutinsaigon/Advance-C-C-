@@ -726,9 +726,9 @@ Bitmask thường được sử dụng để tối ưu hóa bộ nhớ, thực h
 </p>
 </details>
 
-##Test 
+## Test 
 <details>
-<summary><b>My section header in bold</b></summary>
+<summary><b>Hidden markdown text on GitHub</b></summary>
 
 Any folded content here. It requires an empty line just above it.
 
