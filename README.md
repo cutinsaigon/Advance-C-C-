@@ -8,7 +8,7 @@ A pointer is a variable to store the address of the other variable.It is easier 
 ## Pointer size
 **The pointer size depend on the architecture of microcontroller.**
 
-Example:
+**Example:**
 32-bit MCU -> Pointer size = 4 bytes
 
 ```cpp
@@ -47,7 +47,7 @@ If we want to use the **Void pointer** , we need to assign its datatype the same
 
 Syntax: ``` void *ptr_void; ```
 
-Example:
+**Example:**
 ```cpp
 #include <stdio.h>
 
@@ -85,23 +85,21 @@ Dia chi: 00000000005FFE87, char: B
 **Function pointer** is to store the address of function
 
 
-A function pointer is a variable that contains the address of a function. Since it is a pointer variable though with some restricted properties, you can use it pretty much like you would any other pointer variable in data structures. We need to declare the return value and argument datatype of this pointer 
+A function pointer is a variable that contains the address of a function. Since it is a pointer variable though with some restricted properties, you can use it pretty much like you would any other pointer variable in data structures. We need to declare the return value and argument datatype of this pointer.
+
+NOTE: We can not allocate memory for the **Function pointer**.
 
 
-
-Syntax: ```(type) (*pointer_name)(parameter); 
-        =>  int   (*ptr_function)(char, double);
-	Return datatype: 	int
- 	Argument datatype: 	char, double.
-	```
+**Syntax:** 
 ```cpp
 <return_type> (* func_pointer)(input_1_data type, input_2_data type,....);
 
 int (*ptr)(int,double);
 void (*array[])(int,int);
+
 ```
 
-Ví dụ:
+**Example**
 ```cpp
 #include <stdio.h>
 
@@ -133,12 +131,13 @@ int main(int argc, char const *argv[]){
 }
 ```
 
-### 3.Con trỏ hằng
-Con trỏ hằng là một cách định nghĩa một con trỏ **chỉ có thể đọc giá trị tại địa chỉ mà nó trỏ đến (Read Only)** nhưng không thể thay đổi được giá trị đó.
+### 3.Pointer to constant
 
-Đối với biến là hằng số thì phải luôn dùng con trỏ hằng khi trỏ đến.
 
-Cú pháp: 
+**Pointer to Constant** means that the pointer point to a varible, however, it can not change value of variable
+
+
+Syntax:
 ```cpp
 <data_type> const *ptr_const;
 const <data_type> *ptr_const;
@@ -146,31 +145,27 @@ const <data_type> *ptr_const;
 
 
 
-### 4.Hằng con trỏ
-Hằng con trỏ là một con trỏ mà **trỏ đến 1 địa chỉ cố định**, nghĩa là khi con trỏ này được khởi tạo thì nó sẽ không thể trỏ tới địa chỉ khác.
+### 4.Constant pointer
+**Constant pointer** is the pointer which only point to **a fix address**. That mean, we can not point to other address.
 
-Cú pháp:
+Syntax:
 ```cpp
 int *const const_ptr = &value;
 ```
 
 
 
-### 5.Con trỏ NULL
-Khi khai báo con trỏ mà chưa sử dụng ngay hoặc sử dụng xong thì phải gán NULL.
+### 5.NULL pointer 
+In case we declare a pointer and do not assign to any variable. We need to assign it to **NULL*.
 ```cpp
 int *ptr_null = NULL;
-//  ptr_null = 0x00: địa chỉ khởi tạo
-// *ptr_null = 0   : giá trị tại địa chỉ khởi tạo
+//  ptr_null = 0x00: initalize address value
+// *ptr_null = 0   : initalize value
 ```
 ### 6.Pointer to pointer
-Là một kiểu dữ liệu trong ngôn ngữ lập trình cho phép bạn lưu trữ địa chỉ của một con trỏ. 
+The first pointer is used to store the address of the variable. And the second pointer is used to store the address of the first pointer. That is why they are also known as double-pointers. We can use a pointer to a pointer to change the values of normal pointers or create a variable-sized 2-D array. A double pointer occupies the same amount of space in the memory stack as a normal pointer.
 
-Con trỏ đến con trỏ cung cấp một cấp bậc trỏ mới, cho phép bạn thay đổi giá trị của con trỏ gốc. 
-
-Cấp bậc này có thể hữu ích trong nhiều tình huống, đặc biệt là khi bạn làm việc với các hàm cần thay đổi giá trị của con trỏ.
-
-## Ví dụ về con trỏ
+## Example of Pointer 
 ```cpp
 #include <stdio.h>
 #include <string.h>
@@ -234,7 +229,7 @@ void sort(SinhVien_t array[], size_t size, int (*compareFunc)(const void *, cons
         }
     }
 }
-// giải thích kỹ hàm sort
+
 
 
 void display(SinhVien_t *array, size_t size){
@@ -297,26 +292,26 @@ ID: 102,  Ten: Vy,   Diem tb: 5.50
 </details>
 
 # Goto - setjmp.h
-<details><summary>Chi tiết</summary>
+<details><summary>More</summary>
 <p>
 
-## Goto trong C
-### Định nghĩa
+## Goto statement
+### Definition
 
-**Sửa lại bài tập 1 GOTO - viết lại CATCH**
 
-Từ khóa **"goto"** cho phép chương trình nhảy đến một label đã được đặt trước đó cùng một hàm. 
 
-"goto" cung cấp khả năng kiểm soát luồng hoạt động của mã nguồn, nhưng việc sử dụng goto thường được xem là không tốt vì nó có thể làm cho mã nguồn trở nên khó đọc và khó bảo trì. 
+**goto** tells the compiler to go to or jump to the statement marked as a label.
 
-**Ví dụ:**
+NOTE: The use of the **goto** statement is highly discouraged as it makes the program logic very complex and is hard to follow the program flow.
+
+**Example:**
 ```cpp
     int i=0;
     
     // đặt label start
     start:
         if (i >= 5){
-            goto end;       // chuyển control đến lable "end"
+            goto end;       // move to label "end"
         }
         printf("%d\n",i);
         i++;
@@ -324,15 +319,16 @@ Từ khóa **"goto"** cho phép chương trình nhảy đến một label đã �
 
     // đặt label end
     end:
-        printf("The end\n");// chuyển control đến label "start"
+        printf("The end\n");// move to label "start"
     return 0;
 }
 ```
-Trong ví dụ này, goto được sử dụng để tạo một vòng lặp đơn giản. Khi i đạt đến giá trị 5, control sẽ chuyển đến nhãn "end" và kết thúc chương trình.
 
-### Các ứng dụng của goto
-#### Thoát khỏi vòng lặp nhiều cấp độ
-Trong một số trường hợp, việc thoát khỏi nhiều cấp độ vòng lặp có thể trở nên phức tạp nếu sử dụng cấu trúc kiểm soát vòng lặp thông thường. Trong tình huống như vậy, goto có thể được sử dụng để dễ dàng thoát khỏi nhiều cấp độ vòng lặp.
+
+### Goto application
+#### Exit the **loop in loop**
+In case, we need to exit from multiple loop that is very complicated to exit one by one. So, **goto** will be useful in this case.
+
 ```cpp
 int main(int argc, char const *argv[]){
     int count=0;
@@ -351,8 +347,8 @@ int main(int argc, char const *argv[]){
 }
 ```
 
-#### Xử lý lỗi và giải phóng bộ nhớ
-Trong trường hợp xử lý lỗi, có thể sử dụng goto để dễ dàng giải phóng bộ nhớ đã được cấp phát trước khi thoát khỏi hàm.
+#### Error handling & release memory
+We can use **goto** to release the allocated memory before exit the function.
 ```cpp
 void process_data() {
     int *data = malloc(sizeof(int) * 100);
@@ -360,15 +356,15 @@ void process_data() {
         goto cleanup;
     }
 
-    // Xử lý dữ liệu ở đây
+    // TODO
 
     cleanup:
     free(data);
 }
 ```
 
-#### Thực hiện Finite State Machines (FSM)
-Trong một số trường hợp, đặc biệt là khi triển khai Finite State Machines, goto có thể được sử dụng để chuyển đến các trạng thái khác nhau một cách dễ dàng.
+#### Finite State Machines (FSM)
+
 ```cpp
 switch (current_state) {
     case STATE_A:
@@ -384,9 +380,9 @@ switch (current_state) {
 }
 ```
 
-## Thư viện setjmp
-### Định nghĩa
-setjmp.h là một thư viện trong ngôn ngữ lập trình C, cung cấp hai hàm chính là **setjmp** và **longjmp**.
+## setjmp library
+### Definition
+There are 2 main function in this librayry: **setjmp** and **longjmp**.
 
 ```cpp
 setjmp(jmp_buf buf);
@@ -395,9 +391,9 @@ setjmp(jmp_buf buf);
 void longjmp(SETJMP_FLOAT128 *_Buf, int _Value);
 ```
 
-**Giải thích cách hoạt động của setjmp và longjmp**
+**How does it work?**
 
-**Ví dụ:**
+**Example:**
 ```cpp
 #include <stdio.h>
 #include <setjmp.h>
@@ -438,8 +434,9 @@ int main(int argc, char const *argv[]){
 }
 ```
 
-### Xử lý ngoại lệ
-Cả hai hàm **setjmp** và **longjmp** thường được sử dụng để thực hiện xử lý ngoại lệ trong C thông qua 3 keywords chính là: **try**, **catch**, **throw**.
+### Exception handling
+Use **setjmp** & **longjmp** for exception handling in programming C by macro define: **TRY**, **CATCH**, **THROW**.
+
 ```cpp
 #include <stdio.h>
 #include <setjmp.h>
@@ -452,7 +449,7 @@ int exception_code;
 #define THROW(x) longjmp(buf,x)
 ```
 
-**Ví dụ:**
+**Example:**
 ```cpp
 #include <stdio.h>
 #include <setjmp.h>
@@ -502,25 +499,21 @@ int main(int argc, char const *argv[])
 </details>
 
 # Static - Extern - Register - Volatile
-<details><summary>Chi tiết</summary>
+<details><summary>More</summary>
 <p>
 
 ## Static
-### Cú pháp
+Syntax:
 ```cpp
 static <data_type> <name_variable>;
 static <data_type> <name_function>;
 ```
 
 ### static local variables
-Khi 1 biến cục bộ được khai báo với từ khóa static:
+A local variable in a function is declared with static remaining the value of variable when call function within this function.
 
-- giữ giá trị của biến qua các lần gọi hàm.
-- giữ phạm vi của biến chỉ trong hàm đó.
 
-Biến cục bộ static chỉ có thể được gọi trong nội bộ hàm khởi tạo ra nó. Mỗi lần hàm được gọi, giá trị của biến chính bằng giá trị tại lần gần nhất hàm được gọi.
-
-**Ví dụ:**
+**Example:**
 ```cpp
 #include <stdio.h>
 
@@ -543,9 +536,9 @@ int main(int argc, char const *argv[]){
 ```
 
 ### static global variables
-Khi **'static'** được sử dụng với các biến toàn cục, nó sẽ hạn chế phạm vi của biến và chỉ có thể gọi trong file nguồn hiện tại.
+A local variable in a file is declared with static remaining the value within this function.
 
-**Ví dụ:**
+**Example:**
 
 File Ex1.c
 ```cpp
@@ -577,24 +570,22 @@ void display(){
 ```cpp
 undefined reference to `value1'
 ```
-Dễ thấy file Ex1.c khi chạy sẽ gặp lỗi do cố gắng sử dụng extern để gọi 1 biến toàn cục đã được khai báo với static trong 1 file nguồn khác.
+Running file Ex1.c cause error due to attempting to use an extern variable when it is declared as static in other file.
+
 
 ## Extern
-### Định nghĩa
-Từ khóa **'extern'** được sử dụng cho 1 biến hoặc hàm với mục đích là thông báo rằng biến hoặc hàm này đã được định nghĩa ở một nơi khác trong chương trình hoặc trong 1 file nguồn khác. 
+### Definition
 
-Cho phép các file nguồn khác nhau trong cùng một chương trình chia sẽ và sử dụng các biến và hàm mà không cần định nghĩa lại.
+It allows different files in the same folders can access and use the same varible without repeated declaration.
 
-**Extern chỉ cho phép khai báo chứ không định nghĩa.**
+NOTE: **extern** only allows declare, not for assigning.
 
-Biến được tham chiếu phải được khai báo ở cấp độ cao nhất (toàn cục), và có thể nằm trong một file khác.
-
-### Cú pháp
+Syntax:
 ```cpp
 extern <data_type> <name_variable>;
 ```
 
-**Ví dụ:**
+**Example: **
 
 File main.c
 ```cpp
@@ -618,108 +609,104 @@ void Func(){
 }
 ```
 
-### Ứng dụng
-**Chia sẻ biến và hàm giữa các file nguồn**
+### Application
+**Program pregmantation**: a big program is divided into many smaller files, it is easier for debug and design.
 
-- Extern cho phép bạn chia sẻ biến và hàm giữa nhiều file nguồn trong một chương trình.
-- Điều này hữu ích khi bạn muốn tách chương trình thành các phần nhỏ để quản lý dễ dàng hơn
+**Sharing variable from library**
 
-**Chia sẻ biến và hàm giữa các module hoặc thư viện**
+**Calculation result sharing between files**
 
-- Extern có thể được sử dụng để kết nối các module hoặc thư viện trong một dự án lớn.
 
-**Khai báo hàm trong trường hợp định nghĩa sau:**
 
-- Nếu ban muốn sử dụng một hàm trước khi nó được định nghĩa trong mã nguồn, bạn có thể sử dụng extern để khai báo hàm.
-
-**Biến toàn cục giữa các tệp nguồn**
-
-- Khi có một biến toàn cục được sử dụng trong nhiều file nguồn, extern giúp các file nguồn biết về sự tồn tại của biến đó.
-
-**Chia sẻ hằng số giữa các file nguồn**
-
-- Nếu bạn có một hằng số được sử dụng ở nhiều nơi, bạn có thể sử dụng extern để chia sẻ giá trị của hằng số đó giữa các file nguồn.
 
 
 ## Volatile
-### Định nghĩa
-Volatile có nghĩa là không dự đoán được. Một biến sử dụng với volatile có nghĩa là nói với compiler là biến này **có thể sẽ được thay đổi ở bởi yếu tố bên ngoài chương trình** như hardward (ngắt, nhấn button,…) hoặc một luồng khác. Việc này ngăn chặn trình biên dịch tối ưu hóa hoặc xóa bỏ các thao tác trên biến đó, giữ cho các thao tác trên biến được thực hiện như đã được định nghĩa.
+### Definition
+The volatile keyword is intended to prevent the compiler from applying any optimizations on objects that can change in ways that cannot be determined by the compiler. 
 
-### Cú pháp
+Syntax:
 ```cpp
 volatile <data_type> <name_variable>;
 ```
 
-Ví dụ:
+Example:
 ```cpp
 volatile int flag;
 
 void interrupt_handler(){
-    flag = 1; // giá trị của flag có thể thay đổi bởi ngắt
+    flag = 1; // flag value can be change
 }
 ```
 
 ## Register
-### Định nghĩa
+### Definition
 
-![image](https://github.com/user-attachments/assets/5325937f-1104-4845-9bda-7f1e7c1589b9)
+//![image](https://github.com/user-attachments/assets/5325937f-1104-4845-9bda-7f1e7c1589b9)
 
-Register trong C/C++ được sử dụng để **định nghĩa các biến cục bộ mà nên được lưu giữ trong một thanh ghi** thay vì RAM.
+**register** is to store a global variable within **register** instead of RAM.
+**register** help increasing performance of program.
+**register** is prioritized for a few varible for calculation purpose in program.
 
-Từ khóa “register” làm tăng hiệu năng (performance) của chương trình.
+NOTE: **register** is used in restricted due to the limitation of register size.
 
-### Cú pháp
+Syntax:
 ```cpp
 register <data_type> <name_variable>;
 ```
 
-**Ví dụ:**
+**Example:**
 ```cpp
 #include <stdio.h>
 #include <time.h>
 
 int main() {
-    // Lưu thời điểm bắt đầu
+    // Start point
     clock_t start_time = clock();
     int i;
     //register int i;
 
-    // Đoạn mã của chương trình
+    
     for (i = 0; i < 2000000; ++i) {
-        // Thực hiện một số công việc bất kỳ
+        // TODO
     }
 
-    // Lưu thời điểm kết thúc
+    // End point
     clock_t end_time = clock();
 
-    // Tính thời gian chạy bằng miligiây
+    // Process time
     double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
 
-    printf("Thoi gian chay cua chuong trinh: %f giay\n", time_taken);
+    printf("running time: %f giay\n", time_taken);
     return 0;
 }
 ```
 
-Khi chưa register ```Thoi gian chay cua chuong trinh: 0.005 giay```
+Without register ```running time: 0.002 giay```
 
-Khi có register ```Thoi gian chay cua chuong trinh: 0.001 giay```
+With register ```running time: 0.001 giay```
 
 </p>
 </details>
 
 # Bitmask
-<details><summary>Chi tiết</summary>
+<details><summary>More</summary>
 <p>
 
-## Định nghĩa
+## Definition
 
-Bitmask là một kỹ thuật sử dụng các bit để lưu trữ và thao tác với các cờ (flags) hoặc trạng thái.
+A binary digit is used as a flag in bitmasking to denote the status or existence of a feature or trait. To accomplish this, certain bits within a binary number are set or reset to reflect a particular state or value.
 
-Có thể sử dụng bitmask để đặt, xóa, kiểm tra trạng thái của các bit cụ thể trong 1 word.
+Common bitwise operations in bitmasking are:
 
-Bitmask thường được sử dụng để tối ưu hóa bộ nhớ, thực hiện các phép toán logic trên một cụm bit, và quản lý các trạng thái, quyền truy cập, hoặc các thuộc tính khác của một đối tượng.
+OR (|) – sets a bit to 1 if either of the corresponding bits in the operands is 1.
 
-## Các toán tử bitwise
+AND (&) – sets a bit to 1 if both the corresponding bits in the operands are 1.
+
+XOR (^) – sets a bit to 1 if the corresponding bits in the operands are different.
+
+NOT (~) – flips the bits in the operand, i.e., sets 0 bits to 1 and 1 bits to 0.
+
+## Bitwise operator
 
 ![image](https://github.com/user-attachments/assets/cc137df5-e1b1-40ce-b574-cb6f09a14fbb)
 
