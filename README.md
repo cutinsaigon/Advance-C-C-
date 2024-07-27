@@ -641,7 +641,7 @@ void interrupt_handler(){
 ## Register
 ### Definition
 
-//![image](https://github.com/user-attachments/assets/5325937f-1104-4845-9bda-7f1e7c1589b9)
+
 
 **register** is to store a global variable within **register** instead of RAM.
 **register** help increasing performance of program.
