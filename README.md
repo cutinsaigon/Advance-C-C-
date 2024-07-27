@@ -45,7 +45,7 @@ int main(int argc, char const *argv[]){
 **Void pointer** is used to point to the address of variable under any data-type (ex: int, char, double, etc).
 If we want to use the **Void pointer** , we need to assign its datatype the same as the variable pointed.
 
-Syntax: ``` void *ptr_void; ```
+****Syntax**:** ``` void *ptr_void; ```
 
 **Example:**
 ```cpp
@@ -90,7 +90,7 @@ A function pointer is a variable that contains the address of a function. Since 
 NOTE: We can not allocate memory for the **Function pointer**.
 
 
-**Syntax:** 
+****Syntax**:** 
 ```cpp
 <return_type> (* func_pointer)(input_1_data type, input_2_data type,....);
 
@@ -137,7 +137,7 @@ int main(int argc, char const *argv[]){
 **Pointer to Constant** means that the pointer point to a varible, however, it can not change value of variable
 
 
-Syntax:
+**Syntax**:
 ```cpp
 <data_type> const *ptr_const;
 const <data_type> *ptr_const;
@@ -148,7 +148,7 @@ const <data_type> *ptr_const;
 ### 4.Constant pointer
 **Constant pointer** is the pointer which only point to **a fix address**. That mean, we can not point to other address.
 
-Syntax:
+**Syntax**:
 ```cpp
 int *const const_ptr = &value;
 ```
@@ -503,7 +503,7 @@ int main(int argc, char const *argv[])
 <p>
 
 ## Static
-Syntax:
+**Syntax**:
 ```cpp
 static <data_type> <name_variable>;
 static <data_type> <name_function>;
@@ -580,7 +580,7 @@ It allows different files in the same folders can access and use the same varibl
 
 NOTE: **extern** only allows declare, not for assigning.
 
-Syntax:
+**Syntax**:
 ```cpp
 extern <data_type> <name_variable>;
 ```
@@ -624,7 +624,7 @@ void Func(){
 ### Definition
 The volatile keyword is intended to prevent the compiler from applying any optimizations on objects that can change in ways that cannot be determined by the compiler. 
 
-Syntax:
+**Syntax**:
 ```cpp
 volatile <data_type> <name_variable>;
 ```
@@ -649,7 +649,7 @@ void interrupt_handler(){
 
 NOTE: **register** is used in restricted due to the limitation of register size.
 
-Syntax:
+**Syntax**:
 ```cpp
 register <data_type> <name_variable>;
 ```
