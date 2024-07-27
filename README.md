@@ -1,15 +1,15 @@
 # POINTER
-<details><summary>Chi tiết</summary>
+<details><summary>More</summary>
 <p>
 
-## Định nghĩa
-Trong C, con trỏ (pointer) là một biến chứa địa chỉ bộ nhớ của một biến khác. Việc sử dụng con trỏ giúp thực hiện các thao tác trên bộ nhớ một cách linh hoạt hơn.
-## Kích thước con trỏ
-**Kích thước của con trỏ phụ thuộc vào kiến trúc vi xử lý.**
+## Definition
+A pointer is a variable to store the address of the other variable.It is easier to handle the memory by using pointer.
 
-Hệ thống 32 – bit, kích thước của con trỏ là 4 byte.
+## Pointer size
+**The pointer size depend on the architecture of microcontroller.**
 
-Hệ thống 64 – bit, kích thước của con trỏ là 8 byte.
+Example:
+32-bit MCU -> Pointer size = 4 bytes
 
 ```cpp
 #include <stdio.h>
@@ -40,15 +40,14 @@ int main(int argc, char const *argv[]){
 
 
 
-## Các kiểu con trỏ
-### 1.Con trỏ Void
-Thường dùng để **trỏ tới bất kỳ địa chỉ** nào với bất kỳ kiểu dữ liệu của giá trị tại địa chỉ đó.
+## Pointer classification
+### 1.Void pointer
+**Void pointer** is used to point to the address of variable under any data-type (ex: int, char, double, etc).
+If we want to use the **Void pointer** , we need to assign its datatype the same as the variable pointed.
 
-Muốn in ra giá trị thì phải sử dụng ép kiểu để đưa con trỏ void về đến kiểu dữ liệu của giá trị đó.
+Syntax: ``` void *ptr_void; ```
 
-Cú pháp: ``` void *ptr_void; ```
-
-Ví dụ:
+Example:
 ```cpp
 #include <stdio.h>
 
@@ -82,12 +81,19 @@ Dia chi: 00000000005FFE94, int: 10
 Dia chi: 00000000005FFE88, double: 3.140
 Dia chi: 00000000005FFE87, char: B
 ```
-### 2.Con trỏ hàm
-Con trỏ hàm là một biến mà giữ địa chỉ của hàm.
+### 2.Function pointer
+**Function pointer** is to store the address of function
 
-Khi khai báo một con trỏ hàm, ta sẽ cần chỉ định kiểu dữ liệu của hàm mà con trỏ đó sẽ tham chiếu đến, bao gồm kiểu trả về và các tham số của hàm. Sau đó, ta có thể gán con trỏ hàm này cho một hàm cụ thể. Khi gọi con trỏ hàm, chương trình sẽ thực thi hàm mà con trỏ đang tham chiếu đến.
 
-Cú pháp:
+A function pointer is a variable that contains the address of a function. Since it is a pointer variable though with some restricted properties, you can use it pretty much like you would any other pointer variable in data structures. We need to declare the return value and argument datatype of this pointer 
+
+
+
+Syntax: ```(type) (*pointer_name)(parameter); 
+        =>  int   (*ptr_function)(char, double);
+	Return datatype: 	int
+ 	Argument datatype: 	char, double.
+	```
 ```cpp
 <return_type> (* func_pointer)(input_1_data type, input_2_data type,....);
 
