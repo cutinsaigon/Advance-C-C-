@@ -708,12 +708,12 @@ NOT (~) – flips the bits in the operand, i.e., sets 0 bits to 1 and 1 bits to 
 
 ## Bitwise operator
 
-![image](https://github.com/user-attachments/assets/cc137df5-e1b1-40ce-b574-cb6f09a14fbb)
 
 
+![image](https://media.geeksforgeeks.org/wp-content/uploads/20220922145839/BItwiseoperatortruthtable-300x197.png)
 
-//![image](https://github.com/user-attachments/assets/5fc6fd06-dc3b-4877-8010-945edfc8b58f)
 
+![image](https://embeddedwala.com/uploads/images/202206/img_temp_62af09c374d866-36338888-48712239.gif)
 
 
 </p>
