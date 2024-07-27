@@ -717,17 +717,19 @@ Bitmask thường được sử dụng để tối ưu hóa bộ nhớ, thực h
 
 ![image](https://github.com/user-attachments/assets/cc137df5-e1b1-40ce-b574-cb6f09a14fbb)
 
-**##Test **
+
+
+//![image](https://github.com/user-attachments/assets/5fc6fd06-dc3b-4877-8010-945edfc8b58f)
+
+
+
+</p>
+</details>
+
+##Test 
 <details>
 <summary><b>My section header in bold</b></summary>
 
 Any folded content here. It requires an empty line just above it.
 
-</details>
-
-![image](https://github.com/user-attachments/assets/5fc6fd06-dc3b-4877-8010-945edfc8b58f)
-
-
-
-</p>
 </details>
