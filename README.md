@@ -38,7 +38,7 @@ int main(int argc, char const *argv[]){
 4 bytes
 ```
 
-**Quay video**
+
 
 ## Các kiểu con trỏ
 ### 1.Con trỏ Void
@@ -126,12 +126,7 @@ int main(int argc, char const *argv[]){
     return 0;
 }
 ```
-```cpp
-7 + 10 = 17
-7 - 10 = -3
-7 x 7 = 49
-6 / 5 = 1.200
-```
+
 ### 3.Con trỏ hằng
 Con trỏ hằng là một cách định nghĩa một con trỏ **chỉ có thể đọc giá trị tại địa chỉ mà nó trỏ đến (Read Only)** nhưng không thể thay đổi được giá trị đó.
 
@@ -143,7 +138,7 @@ Cú pháp:
 const <data_type> *ptr_const;
 ```
 
-**Thêm ví dụ**
+
 
 ### 4.Hằng con trỏ
 Hằng con trỏ là một con trỏ mà **trỏ đến 1 địa chỉ cố định**, nghĩa là khi con trỏ này được khởi tạo thì nó sẽ không thể trỏ tới địa chỉ khác.
@@ -153,7 +148,7 @@ Cú pháp:
 int *const const_ptr = &value;
 ```
 
-**Thêm ví dụ**
+
 
 ### 5.Con trỏ NULL
 Khi khai báo con trỏ mà chưa sử dụng ngay hoặc sử dụng xong thì phải gán NULL.
